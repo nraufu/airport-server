@@ -16,6 +16,7 @@
     },
     "rules": {
         "linebreak-style": 0,
-        "no-console": "off"
+        "no-console": "off",
+        "space-in-parens": ["error", "always"]
     }
 }

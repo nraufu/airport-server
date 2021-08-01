@@ -1,9 +1,12 @@
-import express from 'express';
+import adminRouter from './admin';
 
-const router = express.Router();
+const routes = ( router ) => {
+  router.route( '/' ).get( ( req, res ) => {
+    res.json( 'Welcome to kigali Airport International API 👋!' );
+  } );
 
-router.get('/', (req, res) => {
-  res.json('Welcome to kigali airport 👋!');
-});
+  // admin route
+  adminRouter( router );
+};
 
-export default router;
+export default routes;
