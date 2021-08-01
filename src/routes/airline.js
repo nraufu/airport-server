@@ -1,8 +1,12 @@
 import validations from '../middlewares/validations';
 import airline from '../controllers/airlines';
+import verifyToken from '../middlewares/verifyToken';
 
 const airlineRouter = ( router ) => {
-  router.post( '/airline', validations.airline, airline.createAirline );
+  router.post( '/airline', verifyToken, validations.airline, airline.createAirline );
+  router.get( '/airline/:id', airline.getOneAirline );
+  router.get( '/airlines', airline.getAllAirlines );
+  router.patch( '/airline/:id', verifyToken, validations.airline, airline.updateAirline );
 };
 
 export default airlineRouter;
