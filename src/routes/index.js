@@ -1,4 +1,5 @@
 import adminRouter from './admin';
+import airlineRouter from './airline';
 
 const routes = ( router ) => {
   router.route( '/' ).get( ( req, res ) => {
@@ -7,6 +8,7 @@ const routes = ( router ) => {
 
   // admin route
   adminRouter( router );
+  airlineRouter( router );
 };
 
 export default routes;
