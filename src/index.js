@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 const router = express.Router();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // pass router to routes
 routes( router );
