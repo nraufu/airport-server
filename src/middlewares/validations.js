@@ -25,7 +25,7 @@ const validations = {
       } ),
       logoImg: Joi.string().trim().required().messages( {
         'string.empty': 'a valid logo is required',
-        'any.required': 'logo is a required',
+        'any.required': 'logo Image is a required',
       } ),
       country: Joi.string().trim().required().messages( {
         'string.empty': 'a valid country is required',

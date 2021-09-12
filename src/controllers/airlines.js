@@ -7,7 +7,7 @@ import response from '../helpers/response';
  * @param {object} req server request
  * @param {object} res server response
  * @return {object} response object
-*/
+ */
 const createAirline = async ( req, res ) => {
   try {
     const {
@@ -34,7 +34,7 @@ const createAirline = async ( req, res ) => {
  * @param {object} req server request
  * @param {object} res server response
  * @return {object} response object
-*/
+ */
 const getAllAirlines = async ( req, res ) => {
   try {
     const airlines = await Airline.find();
@@ -50,7 +50,7 @@ const getAllAirlines = async ( req, res ) => {
  * @param {object} req server request
  * @param {object} res server response
  * @return {object} response object
-*/
+ */
 const getOneAirline = async ( req, res ) => {
   try {
     const { id } = req.params;
@@ -68,7 +68,7 @@ const getOneAirline = async ( req, res ) => {
  * @param {object} req server request
  * @param {object} res server response
  * @return {object} response object
-*/
+ */
 const updateAirline = async ( req, res ) => {
   try {
     const { id } = req.params;
@@ -100,9 +100,30 @@ const updateAirline = async ( req, res ) => {
   }
 };
 
+/**
+ * Update a specific airline
+ *
+ * @param {object} req server request
+ * @param {object} res server response
+ * @return {object} response object
+ */
+
+const deleteAirline = async ( req, res ) => {
+  try {
+    const { id } = req.params;
+    const airline = await Airline.findOne( { _id: id } );
+    if ( !airline ) return response( res, 404, 'Error', { message: 'Airline not found!' } );
+    await airline.remove();
+    return response( res, 200, 'Success', { message: 'Airline deleted successfully!' } );
+  } catch ( err ) {
+    return response( res, 500, 'Error', err );
+  }
+};
+
 export default {
   createAirline,
   getAllAirlines,
   getOneAirline,
   updateAirline,
+  deleteAirline,
 };
