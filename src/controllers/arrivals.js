@@ -11,18 +11,19 @@ import response from '../helpers/response';
 const createArrival = async ( req, res ) => {
   try {
     const {
-      airline, airlineName, flight, origin, scheduled, status,
+      airlineLogo, airlineName, flight, origin, scheduled, status,
     } = req.body;
     const arrival = new Arrival( {
-      airline,
+      airlineLogo,
       airlineName,
       flight,
       origin,
       scheduled,
       status,
     } );
-    const isExist = await Arrival.findOne( { airlineName } );
-    if ( isExist ) return response( res, 400, 'Error', { message: 'Arrival already registered!' } );
+    // const isExist = await Arrival.findOne( { airlineName } );
+    // if ( isExist )
+    // return response( res, 400, 'Error', { message: 'Arrival already registered!' } );
     await arrival.save();
     return response( res, 200, 'Success', { arrival } );
   } catch ( err ) {
@@ -75,12 +76,12 @@ const updateArrival = async ( req, res ) => {
   try {
     const { id } = req.params;
     const {
-      airline, airlineName, flight, origin, scheduled, status,
+      airlineLogo, airlineName, flight, origin, scheduled, status,
     } = req.body;
     const arrival = await Arrival.findOne( { _id: id } );
     if ( !arrival ) return response( res, 404, 'Error', { message: 'Arrival not found!' } );
-    if ( airline ) {
-      arrival.airline = airline;
+    if ( airlineLogo ) {
+      arrival.airlineLogo = airlineLogo;
     }
 
     if ( airlineName ) {

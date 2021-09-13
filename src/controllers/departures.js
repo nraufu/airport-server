@@ -11,10 +11,10 @@ import response from '../helpers/response';
 const createDeparture = async ( req, res ) => {
   try {
     const {
-      airline, airlineName, flight, destination, scheduled, status,
+      airlineLogo, airlineName, flight, destination, scheduled, status,
     } = req.body;
     const departure = new Departure( {
-      airline,
+      airlineLogo,
       airlineName,
       flight,
       destination,

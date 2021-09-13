@@ -42,9 +42,9 @@ const validations = {
 
   departure( req, res, next ) {
     const schema = Joi.object( {
-      airline: Joi.string().trim().required().messages( {
-        'string.empty': 'a valid airline is required',
-        'any.required': 'name is a required',
+      airlineLogo: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid airline Logo is required',
+        'any.required': 'airline Logo is a required',
       } ),
       airlineName: Joi.string().trim().required().messages( {
         'string.empty': 'a valid Airline Name is required',
@@ -73,9 +73,9 @@ const validations = {
 
   arrival( req, res, next ) {
     const schema = Joi.object( {
-      airline: Joi.string().trim().required().messages( {
-        'string.empty': 'a valid airline is required',
-        'any.required': 'name is a required',
+      airlineLogo: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid Airline Logo is required',
+        'any.required': 'Airline Logo is a required',
       } ),
       airlineName: Joi.string().trim().required().messages( {
         'string.empty': 'a valid Airline Name is required',

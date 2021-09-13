@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const Departure = mongoose.model(
   'departure',
   new mongoose.Schema( {
-    airline: {
+    airlineLogo: {
       type: String,
       required: true,
     },
