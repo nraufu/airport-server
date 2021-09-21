@@ -11,17 +11,16 @@ import response from '../helpers/response';
 const createNews = async ( req, res ) => {
   try {
     const {
-      name, title, img, description, body, thumbnail,
+      title, img, description, body, thumbnail,
     } = req.body;
     const news = new News( {
-      name,
       title,
       img,
       description,
       body,
       thumbnail,
     } );
-    const isExist = await News.findOne( { name } );
+    const isExist = await News.findOne( { title } );
     if ( isExist ) return response( res, 400, 'Error', { message: 'News already registered!' } );
     await news.save();
     return response( res, 200, 'Success', { news } );
@@ -75,13 +74,10 @@ const updateNews = async ( req, res ) => {
   try {
     const { id } = req.params;
     const {
-      name, title, img, description, body, thumbnail,
+      title, img, description, body, thumbnail,
     } = req.body;
     const news = await News.findOne( { _id: id } );
     if ( !news ) return response( res, 404, 'Error', { message: 'News not found!' } );
-    if ( name ) {
-      news.name = name;
-    }
 
     if ( title ) news.title = title;
 
