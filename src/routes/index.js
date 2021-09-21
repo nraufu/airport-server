@@ -2,6 +2,7 @@ import adminRouter from './admin';
 import airlineRouter from './airline';
 import departureRouter from './departure';
 import arrivalRouter from './arrival';
+import newsRouter from './news';
 
 const routes = ( router ) => {
   router.route( '/' ).get( ( req, res ) => {
@@ -19,6 +20,9 @@ const routes = ( router ) => {
 
   // arrival route
   arrivalRouter( router );
+
+  // news route
+  newsRouter( router );
 };
 
 export default routes;

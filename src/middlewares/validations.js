@@ -47,8 +47,8 @@ const validations = {
         'any.required': 'airline Logo is a required',
       } ),
       airlineName: Joi.string().trim().required().messages( {
-        'string.empty': 'a valid Airline Name is required',
-        'any.required': 'Airline Name is a required',
+        'string.empty': 'a valid Img is required',
+        'any.required': 'Img is a required',
       } ),
       destination: Joi.string().trim().required().messages( {
         'string.empty': 'a valid destination is required',
@@ -78,8 +78,8 @@ const validations = {
         'any.required': 'Airline Logo is a required',
       } ),
       airlineName: Joi.string().trim().required().messages( {
-        'string.empty': 'a valid Airline Name is required',
-        'any.required': 'Airline Name is a required',
+        'string.empty': 'a valid Img is required',
+        'any.required': 'Img is a required',
       } ),
       origin: Joi.string().trim().required().messages( {
         'string.empty': 'a valid origin is required',
@@ -96,6 +96,33 @@ const validations = {
       status: Joi.string().trim().required().messages( {
         'string.empty': 'A valid status is required',
         'any.required': 'status is a required',
+      } ),
+    } );
+
+    returnError( req.body, res, schema, next );
+  },
+
+  news( req, res, next ) {
+    const schema = Joi.object( {
+      title: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid Title is required',
+        'any.required': 'Title is a required',
+      } ),
+      img: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid Img is required',
+        'any.required': 'Img is a required',
+      } ),
+      description: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid Description is required',
+        'any.required': 'Description is a required',
+      } ),
+      body: Joi.string().required().messages( {
+        'string.empty': 'A valid Body is required',
+        'any.required': 'Body is a required',
+      } ),
+      thumbnail: Joi.string().required().messages( {
+        'string.empty': 'A valid Thumbnail is required',
+        'any.required': 'Thumbnail is a required',
       } ),
     } );
 
