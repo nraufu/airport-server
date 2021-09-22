@@ -81,7 +81,7 @@ const updateNews = async ( req, res ) => {
 
     if ( title ) news.title = title;
 
-    if ( img ) news.imgUri = img;
+    if ( img ) news.img = img;
 
     if ( description ) news.description = description;
 
