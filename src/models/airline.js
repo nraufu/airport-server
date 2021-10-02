@@ -16,6 +16,18 @@ const Airline = mongoose.model(
       type: String,
       required: true,
     },
+    headQuarterLocation: {
+      type: String,
+      required: true,
+    },
+    website: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
     flights: {
       type: Array,
       default: [],

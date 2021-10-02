@@ -35,6 +35,18 @@ const validations = {
         'string.empty': 'at least one flight is required',
         'any.required': 'flights is a required',
       } ),
+      website: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid website is required',
+        'any.required': 'website is a required',
+      } ),
+      headQuarterLocation: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid headerQuarterLocation is required',
+        'any.required': 'headerQuarterLocation is a required',
+      } ),
+      phone: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid phone is required',
+        'any.required': 'phone is a required',
+      } ),
     } );
 
     returnError( req.body, res, schema, next );
