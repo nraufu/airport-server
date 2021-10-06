@@ -17,6 +17,21 @@ const validations = {
     returnError( req.body, res, schema, next );
   },
 
+  adminPassword( req, res, next ) {
+    const schema = Joi.object( {
+      oldPassword: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid old password is required',
+        'any.required': 'old password is a required',
+      } ),
+      newPassword: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid new password is required',
+        'any.required': 'new password is a required',
+      } ),
+    } );
+
+    returnError( req.body, res, schema, next );
+  },
+
   airline( req, res, next ) {
     const schema = Joi.object( {
       name: Joi.string().trim().required().messages( {
@@ -40,12 +55,16 @@ const validations = {
         'any.required': 'website is a required',
       } ),
       headQuarterLocation: Joi.string().trim().required().messages( {
-        'string.empty': 'a valid headerQuarterLocation is required',
-        'any.required': 'headerQuarterLocation is a required',
+        'string.empty': 'a valid headQuarterLocation is required',
+        'any.required': 'headQuarterLocation is a required',
       } ),
       phone: Joi.string().trim().required().messages( {
         'string.empty': 'a valid phone is required',
         'any.required': 'phone is a required',
+      } ),
+      email: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid email is required',
+        'any.required': 'email is a required',
       } ),
     } );
 

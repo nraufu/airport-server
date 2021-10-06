@@ -14,7 +14,8 @@ const PORT = process.env.PORT || 5000;
 // pass router to routes
 routes( router );
 
-app.use( express.json() );
+app.use( express.json( { limit: '50mb', extended: true } ) );
+app.use( express.urlencoded( { limit: '50mb', extended: true } ) );
 app.use( cors() );
 app.use( '/api/', router );
 
