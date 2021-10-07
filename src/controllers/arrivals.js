@@ -11,11 +11,12 @@ import response from '../helpers/response';
 const createArrival = async ( req, res ) => {
   try {
     const {
-      airlineLogo, airlineName, flight, origin, scheduled, status,
+      airlineLogo, airlineName, airlineWebsite, flight, origin, scheduled, status,
     } = req.body;
     const arrival = new Arrival( {
       airlineLogo,
       airlineName,
+      airlineWebsite,
       flight,
       origin,
       scheduled,
@@ -76,7 +77,7 @@ const updateArrival = async ( req, res ) => {
   try {
     const { id } = req.params;
     const {
-      airlineLogo, airlineName, flight, origin, scheduled, status,
+      airlineLogo, airlineName, airlineWebsite, flight, origin, scheduled, status,
     } = req.body;
     const arrival = await Arrival.findOne( { _id: id } );
     if ( !arrival ) return response( res, 404, 'Error', { message: 'Arrival not found!' } );
@@ -86,6 +87,10 @@ const updateArrival = async ( req, res ) => {
 
     if ( airlineName ) {
       arrival.airlineName = airlineName;
+    }
+
+    if ( airlineWebsite ) {
+      arrival.airlineWebsite = airlineWebsite;
     }
 
     if ( flight ) {

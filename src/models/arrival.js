@@ -11,6 +11,10 @@ const Arrival = mongoose.model(
       type: String,
       required: true,
     },
+    airlineWebsite: {
+      type: String,
+      required: true,
+    },
     flight: {
       type: String,
       required: true,

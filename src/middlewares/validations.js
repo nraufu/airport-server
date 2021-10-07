@@ -81,6 +81,10 @@ const validations = {
         'string.empty': 'a valid Img is required',
         'any.required': 'Img is a required',
       } ),
+      airlineWebsite: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid website is required',
+        'any.required': 'website is a required',
+      } ),
       destination: Joi.string().trim().required().messages( {
         'string.empty': 'a valid destination is required',
         'any.required': 'destination is a required',
@@ -111,6 +115,10 @@ const validations = {
       airlineName: Joi.string().trim().required().messages( {
         'string.empty': 'a valid Img is required',
         'any.required': 'Img is a required',
+      } ),
+      airlineWebsite: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid website is required',
+        'any.required': 'website is a required',
       } ),
       origin: Joi.string().trim().required().messages( {
         'string.empty': 'a valid origin is required',

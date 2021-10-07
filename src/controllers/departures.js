@@ -11,18 +11,19 @@ import response from '../helpers/response';
 const createDeparture = async ( req, res ) => {
   try {
     const {
-      airlineLogo, airlineName, flight, destination, scheduled, status,
+      airlineLogo, airlineName, airlineWebsite, flight, destination, scheduled, status,
     } = req.body;
     const departure = new Departure( {
       airlineLogo,
       airlineName,
+      airlineWebsite,
       flight,
       destination,
       scheduled,
       status,
     } );
-    const isExist = await Departure.findOne( { airlineName } );
-    if ( isExist ) return response( res, 400, 'Error', { message: 'Departure already registered!' } );
+    const isExist = await Departure.findOne( { flight, destination, scheduled } );
+    if ( isExist ) return response( res, 400, 'Error', { message: 'Flight Already registered!' } );
     await departure.save();
     return response( res, 200, 'Success', { departure } );
   } catch ( err ) {
@@ -75,7 +76,7 @@ const updateDeparture = async ( req, res ) => {
   try {
     const { id } = req.params;
     const {
-      airline, airlineName, flight, destination, scheduled, status,
+      airline, airlineName, airlineWebsite, flight, destination, scheduled, status,
     } = req.body;
     const departure = await Departure.findOne( { _id: id } );
     if ( !departure ) return response( res, 404, 'Error', { message: 'Departure not found!' } );
@@ -85,6 +86,10 @@ const updateDeparture = async ( req, res ) => {
 
     if ( airlineName ) {
       departure.airlineName = airlineName;
+    }
+
+    if ( airlineWebsite ) {
+      departure.airlineWebsite = airlineWebsite;
     }
 
     if ( flight ) {
