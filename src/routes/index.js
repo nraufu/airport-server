@@ -3,6 +3,7 @@ import airlineRouter from './airline';
 import departureRouter from './departure';
 import arrivalRouter from './arrival';
 import newsRouter from './news';
+import reportRouter from './report';
 
 const routes = ( router ) => {
   router.route( '/' ).get( ( req, res ) => {
@@ -23,6 +24,9 @@ const routes = ( router ) => {
 
   // news route
   newsRouter( router );
+
+  // report route
+  reportRouter( router );
 };
 
 export default routes;
