@@ -23,7 +23,7 @@ const createReport = async ( req, res ) => {
 
     // send email to airline email address with pdf attached
     const transporter = nodemailer.createTransport( {
-      host: 'smtp.gmail.com',
+      service: 'Gmail',
       port: 465,
       auth: {
         user: 'kigaliairport@gmail.com',
