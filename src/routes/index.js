@@ -4,6 +4,8 @@ import departureRouter from './departure';
 import arrivalRouter from './arrival';
 import newsRouter from './news';
 import reportRouter from './report';
+import driverRouter from './driver';
+import bookingRouter from './booking';
 
 const routes = ( router ) => {
   router.route( '/' ).get( ( req, res ) => {
@@ -27,6 +29,12 @@ const routes = ( router ) => {
 
   // report route
   reportRouter( router );
+
+  // driver route
+  driverRouter( router );
+
+  // booking route
+  bookingRouter( router );
 };
 
 export default routes;

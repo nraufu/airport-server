@@ -167,6 +167,68 @@ const validations = {
 
     returnError( req.body, res, schema, next );
   },
+
+  driver( req, res, next ) {
+    const schema = Joi.object( {
+      fullNames: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid full names is required',
+        'any.required': 'full names are a required',
+      } ),
+      plateNumber: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid plate number is required',
+        'any.required': 'plate number is a required',
+      } ),
+      carType: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid car type is required',
+        'any.required': 'car type is a required',
+      } ),
+      phone: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid phone is required',
+        'any.required': 'phone is a required',
+      } ),
+      email: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid email is required',
+        'any.required': 'email is a required',
+      } ),
+    } );
+
+    returnError( req.body, res, schema, next );
+  },
+
+  booking( req, res, next ) {
+    const schema = Joi.object( {
+      fullNames: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid full names is required',
+        'any.required': 'full names is a required',
+      } ),
+      carType: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid car type is required',
+        'any.required': 'car type Image is a required',
+      } ),
+      date: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid date is required',
+        'any.required': 'date is a required',
+      } ),
+      time: Joi.string().required().messages( {
+        'string.empty': 'a valid time is required',
+        'any.required': 'time is a required',
+      } ),
+      pickupAddress: Joi.string().required().messages( {
+        'string.empty': 'a valid pickupAddress is required',
+        'any.required': 'pickupAddress is a required',
+      } ),
+      phone: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid phone is required',
+        'any.required': 'phone is a required',
+      } ),
+      email: Joi.string().trim().required().messages( {
+        'string.empty': 'a valid email is required',
+        'any.required': 'email is a required',
+      } ),
+    } );
+
+    returnError( req.body, res, schema, next );
+  },
 };
 
 export default validations;
